@@ -34,11 +34,11 @@ Certificate will expire
 ## Color output by default
 
 The output 'will expire' and 'mismatch' will be colored by explicitly colored
-grepping, which is a convencience feature. You can disable that by setting
-the standardized NOCOLOR=1 flag in front of the script:
+grepping, which is a convencience feature. You can disable that by overriding
+the `GREP_FLAGS` which is set to `--color` by default.
 
 ```bash
-$ NOCOLOR=1 ./check-ssl.sh expired.badssl.com
+$ GREP_FLAGS="" ./check-ssl.sh expired.badssl.com
 expired.badssl.com @ 104.154.89.105
 Hostname expired.badssl.com OK
 notAfter=Apr 12 23:59:59 2015 GMT
@@ -46,6 +46,10 @@ Certificate will expire
 ```
 
 (`will expire` will not be highlighted in this case)
+
+## More info
+
+Read the source code. It has a fraction of the lines of this readme ;)
 
 ## License
 
